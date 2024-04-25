@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($name) || empty($email) || empty($password)|| empty($about)) {
         echo "All field required";
     }
-    $sql = "insert into `abhijit`.`user` (`name`,`email`,`password`,`about`) values('$name','$email','$password','$about')";
+    $sql = "insert into `user`.`user` (`name`,`email`,`password`,`about`) values('$name','$email','$password','$about')";
     if ($conn->query($sql) === TRUE) {
        $alert = true;
     } else {
@@ -77,13 +77,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <!-- <?php require 'config/_nav.php' ?> -->
-    <form action="/abhijit/signup.php" method="post">
+    <form action="/basicloginsystem/signup.php" method="post">
         <input type="text" name="username" placeholder="Enter name">
         <input type="email" name="email" placeholder="Enter email">
         <input type="text" name="password" placeholder="Enter password">
         <input type="text" name="about" placeholder="Enter about">
         <button type="submit">Submit</button>
-        <a href="/abhijit/login.php">Already have an account ? go to login </a>
+        <a href="/basicloginsystem/login.php">Already have an account ? go to login </a>
         <?php 
         if($alert)
         {
