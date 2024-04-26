@@ -73,12 +73,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <div class="div1" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
         
-        <form class="from1" action="/basicloginsystem/login.php" method="post" style="background-color: #fff; border-radius: 5px; box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5); padding: 20px;">
+        <form class="from1" action="/abhijit/login.php" method="post" style="background-color: #fff; border-radius: 5px; box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5); padding: 20px;">
             <b style="display: flex; justify-content: center; align-items: center; font-size: 20px;">Please Login To Continue</b>
             <input type="text" name="email" placeholder="Enter email" style="width: 90%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; position: relative; top: 2rem;" required>
             <input type="password" name="password" placeholder="Enter password" style="width: 90%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; position: relative; top: 3rem;" required>
             <div style="display: flex; justify-content: center; align-items: center; position: relative; top: 6rem;"><button type="submit" style="width: 50%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Login</button></div>
-            <a href="/basicloginsystem/signup.php" style="display: flex; justify-content: center; align-items: center; position: relative; top: 7rem;">Don't have an account? Go to signup</a>
+            <a href="/abhijit/signup.php" style="display: flex; justify-content: center; align-items: center; position: relative; top: 7rem;">Don't have an account? Go to signup</a>
         </form>
     </div>
 </body>
