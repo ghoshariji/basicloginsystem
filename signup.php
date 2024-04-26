@@ -6,12 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $about = $_POST["about"];
-    if(empty($name) || empty($email) || empty($password)|| empty($about)) {
+    $isAdmin = 0;
+    if (empty($name) || empty($email) || empty($password) || empty($about)) {
         echo "All field required";
     }
-    $sql = "insert into `abhijit`.`user` (`name`,`email`,`password`,`about`) values('$name','$email','$password','$about')";
+    $sql = "insert into `abhijit`.`user` (`name`,`email`,`password`,`about`,`isAdmin`) values('$name','$email','$password','$about','$isAdmin')";
     if ($conn->query($sql) === TRUE) {
-       $alert = true;
+        $alert = true;
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -84,9 +85,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="about" placeholder="Enter about">
         <button type="submit">Submit</button>
         <a href="/abhijit/login.php">Already have an account ? go to login </a>
-        <?php 
-        if($alert)
-        {
+        <?php
+        if ($alert) {
             echo "Signup complete";
         }
         ?>

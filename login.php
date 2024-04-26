@@ -12,9 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($res) {
             if (mysqli_num_rows($res) == 1) {
+                $row = $res->fetch_assoc();
+                // Start session
                 session_start();
                 $_SESSION["email"] = $email;
-                header("Location: /abhijit/welcome.php");
+                if ($row["isAdmin"] == 1) {
+                    header("Location: /abhijit/admin.php"); 
+                } else {
+                    header("Location: /abhijit/welcome.php"); 
+                }
                 exit();
             } else {
                 echo "Invalid email or password. Please try again.";
@@ -27,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

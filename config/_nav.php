@@ -19,11 +19,10 @@ if (isset($_SESSION["email"])) {
 <body>
     <div>
         <ul style="list-style-type: none; margin: 0; padding: 0; background-color: #333; overflow: hidden;">
-            <li style="float: left;"><a href="#" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Home</a></li>
-            <li style="float: left;"><a href="#" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">About</a></li>
-            <li style="float: left;"><a href="#" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Service</a></li>
-            <li style="float: left;"><a href="#" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Buy</a></li>
-            <li style="float: left;"><a href="login.php" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Logout</a></li>
+            <li style="float: left;"><a href="/abhijit/welcome.php" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Home</a></li>
+            <li style="float: left;"><a href="/abhijit/userorder.php" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Book order</a></li>
+            <li style="float: left;"><a href="/abhijit/usercontact.php" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Contact</a></li>
+            <li style="float: left;"><a href="/abhijit/login.php" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Logout</a></li>
             <li style="float: right;"><a href="#" style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;">Hello <?php echo $email; ?></a></li>
         </ul>
     </div>
