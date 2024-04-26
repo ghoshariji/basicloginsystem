@@ -1,8 +1,8 @@
 <?php
-$server = "127.0.0.1:3308";
+$server = "localhost";
 $username = "root";
-$password = "1234";
-$database = "abhijit";
+$password = "";
+$database = "user";
 $conn = mysqli_connect($server, $username, $password, $database);
 if ($conn) {
     // echo "Success";

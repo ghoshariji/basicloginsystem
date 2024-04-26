@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <!-- <?php require 'config/_nav.php' ?> -->
-    <form action="/abhijit/signup.php" method="post">
+    <form action="/basicloginsystem/signup.php" method="post">
         <input type="text" name="username" placeholder="Enter name">
         <input type="email" name="email" placeholder="Enter email">
         <input type="text" name="password" placeholder="Enter password">
