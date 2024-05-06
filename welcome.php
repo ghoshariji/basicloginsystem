@@ -1,21 +1,34 @@
- <?php
-    $alert = false;
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        include "config/_dbconfig.php";
-        if (isset($_SESSION["email"])) {
-            $username = $_SESSION["email"];
-        }
+<?php
+session_start(); // Start the session
+
+$alert = false;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "config/_dbconfig.php";
+
+    // Check if email is set in the session
+    if (isset($_SESSION["email"])) {
+        $email = $_SESSION["email"];
+
         $bookname = $_POST["bookname"];
         $price = $_POST["price"];
         $submitdate = $_POST["date"];
+
         // saving into the database
-        $sql = "INSERT INTO `abhijit`.`bookmodel` (`username`, `bookname`, `price`, `submitdate`) VALUES ('$username', '$bookname', '$price', '$submitdate')";
+        $sql = "INSERT INTO `abhijit`.`bookmodel` (`username`, `bookname`, `price`, `submitdate`) VALUES ('$email', '$bookname', '$price', '$submitdate')";
 
         if ($conn->query($sql) === TRUE) {
             $alert = true;
+        } else {
+            // Handle the case where the query execution fails
+            echo "Error: " . $conn->error;
         }
+    } else {
+        // Handle the case where email is not set in the session
+        echo "Email not found in session.";
     }
-    ?>
+}
+?>
+
  <!DOCTYPE html>
  <html lang="en">
 
