@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php 
-    session_start(); // Start the session
+    // session_start(); // Start the session
     include "config/_nav.php";
 
     // Check if email is set in the session
@@ -18,7 +18,7 @@
         include "config/_dbconfig.php";
 
         // Query to fetch orders based on email
-        $sql = "SELECT * FROM `abhijit`.`bookmodel` WHERE `username`='$email'";
+        $sql = "SELECT * FROM `libray`.`bookmodel` WHERE `username`='$email'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -45,6 +45,11 @@
     } else {
         echo "User not logged in.";
     }
+?>
+
+
+<?php
+include "footer.php"
 ?>
 </body>
 </html>

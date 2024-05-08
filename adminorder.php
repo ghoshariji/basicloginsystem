@@ -34,10 +34,10 @@
     // Check if the approve or reject button is clicked
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve'])) {
         // Get the ID of the order to approve
-        $id = $_POST['id'];
+        $username = $_POST['username'];
 
         // Update the isApproved field to 1 (approved)
-        $sql = "UPDATE `bookmodel` SET `isApproved` = 1 WHERE `id` = '$id'";
+        $sql = "UPDATE `bookmodel` SET `isApproved` = 1 WHERE `username` = '$username'";
         if ($conn->query($sql) === TRUE) {
             echo "Order approved successfully.";
         } else {
@@ -45,10 +45,10 @@
         }
     } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reject'])) {
         // Get the ID of the order to reject
-        $id = $_POST['id'];
+        $username = $_POST['username'];
 
         // Update the isApproved field to 0 (rejected)
-        $sql = "UPDATE `bookmodel` SET `isApproved` = 0 WHERE `id` = '$id'";
+        $sql = "UPDATE `bookmodel` SET `isApproved` = 0 WHERE `username` = '$username'";
         if ($conn->query($sql) === TRUE) {
             echo "Order rejected successfully.";
         } else {
@@ -64,17 +64,30 @@
         echo "<table>";
         echo "<tr><th>username</th><th>bookname</th><th>price</th><th>Submitdate</th><th>Status</th><th>Action</th></tr>";
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["username"] . "</td><td>" . $row["bookname"] . "</td><td>" . $row["price"] . "</td> <td>" . $row["submitdate"] . "</td><td>" . (($row["isApproved"] == 1) ? "Approved" : "Pending") . "</td><td>  
-            <form method='post' action='/abhijit/adminorder.php'>
-            <input type='hidden' name='id' value='" . $row["id"] . "'>
-            <button type='submit' name='approve'>Approve</button>
-            <button type='submit' name='reject'>Reject</button>
-            </form></td></tr>";
+            echo "<tr><td>" . $row["username"] . "</td><td>" . $row["bookname"] . "</td><td>" . $row["price"] . "</td> <td>" . $row["submitdate"] . "</td><td>" . (($row["isApproved"] == 1) ? "Approved" : "Pending") . "</td><td>";  
+            if ($row["isApproved"] == 1) {
+                // Show Reject button
+                echo "<form method='post' action='/abhijit/adminorder.php'>
+                <input type='hidden' name='username' value='" . $row["username"] . "'>
+                <button type='submit' name='reject'>Reject</button>
+                </form>";
+            } else {
+                // Show Approve button
+                echo "<form method='post' action='/abhijit/adminorder.php'>
+                <input type='hidden' name='username' value='" . $row["username"] . "'>
+                <button type='submit' name='approve'>Approve</button>
+                </form>";
+            }
+            echo "</td></tr>";
         }
         echo "</table>";
     } else {
         echo "No data available";
     }
+    ?>
+
+    <?php
+    include "footer.php"
     ?>
 
 </body>
