@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Orders</title>
+    <title>Your Orders</title>
 </head>
 <body>
 <?php 
@@ -23,7 +23,7 @@
 
         if ($result->num_rows > 0) {
             // Display orders in a table format
-            echo "<h1>User Orders</h1>";
+            echo "<h1>Your Orders</h1>";
             echo "<table border='1'>";
             echo "<tr><th>Book Name</th><th>Price</th><th>Submit Date</th><th>Status</th></tr>";
             while($row = $result->fetch_assoc()) {
